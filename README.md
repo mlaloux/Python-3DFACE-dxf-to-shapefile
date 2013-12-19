@@ -1,4 +1,4 @@
-3DFACES-dxf-to-shapefile
+3DFACE dxf to shapefile
 ========================
 
 From [3D dxf files](http://osgeo-org.1560.x6.nabble.com/3D-dxf-files-td5093449.html#a5095133) 

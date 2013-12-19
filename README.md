@@ -7,12 +7,12 @@ Looking at the awk script of Siki Zoltan,  I made Python scripts using regular e
 
 In the dxf file, A 3D face polygon is located between the two delimiters:
 
-3DFace
-.....
-  0
+3DFace  
+.....  
+  0  
 (the spaces before the 0 are important here, because there are also coordinates equal to 0, without spaces)
 
-I  use the solution of Brent Newey in Repeatedly extract a line between two delimiters in a text file, Python
+I  use the solution of Brent Newey in [Repeatedly extract a line between two delimiters in a text file, Python](http://stackoverflow.com/questions/7098530/repeatedly-extract-a-line-between-two-delimiters-in-a-text-file-python)
 
 ```python
                 re.findall('DELIMITER1(.*?)DELIMITER2'
@@ -84,8 +84,8 @@ With Fiona and shapely:
                  fet.setAttributes([name])
                  geom = QgsGeometry.fromPolygon([[QgsPoint(float(x1),float(y1)), QgsPoint(float(x2),float(y2)), QgsPoint(float(x3),float(y3))]])
                  fet.setGeometry(geom)
-                  pr.addFeatures([fet])
-                  layer.updateExtents()
+                 pr.addFeatures([fet])
+                 layer.updateExtents()
              
          QgsMapLayerRegistry.instance().addMapLayers([layer]) 
          

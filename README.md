@@ -14,17 +14,21 @@ In the dxf file, A 3D face polygon is located between the two delimiters:
 
 I  use the solution of Brent Newey in Repeatedly extract a line between two delimiters in a text file, Python
 
+```python
                 re.findall('DELIMITER1(.*?)DELIMITER2'
+```
 
 I had to try many many regular expressions to  extract the polygons but this one works with all my examples:
 
+```python
                  re.findall(''3DFACE(.*?)\s{3}0'')
+```
 
 The main drawback of this approach is that the dxf file must be read in memory entirely before it's used (but no problem with the 33.3 Mo of Otway_Basin_Granites-gravity.dxf)
 
 The scripts:
 
-1) if you want a 3D shapefile as a result, you can use pyshp, Fiona and shapely or osgeo.ogr (PyQGIS  does not support 3D)
+#####1) if you want a 3D shapefile as a result, you can use pyshp, Fiona and shapely or osgeo.ogr (PyQGIS  does not support 3D)
 
 With pyshp:
 
@@ -62,7 +66,7 @@ With Fiona and shapely:
                     
 ```
 
-2) if you want directly a 2D shapefile in QGIS, you can use the Python console:
+#####2) if you want directly a 2D shapefile in QGIS, you can use the Python console:
 
 ```python
 
@@ -86,6 +90,8 @@ With Fiona and shapely:
          QgsMapLayerRegistry.instance().addMapLayers([layer]) 
          
 ```
+
+Result:
 
 ![Result][1]
 

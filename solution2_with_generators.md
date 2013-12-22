@@ -37,6 +37,8 @@ Traitement (ne marche pas avec Pyshp):
                 
 ```
 
+<img src="http://i.imgur.com/8DN7hlV.jpg" HR WIDTH="60%">
+
 Comme il y a des lignes dans le fichier dxf (LINES)
 
 ```python
@@ -48,3 +50,4 @@ Comme il y a des lignes dans le fichier dxf (LINES)
                 e.write({'geometry':mapping(geom), 'properties':{'name':name}})
                 
 ```
+<img src="http://i.imgur.com/uz7k0mH.jpg" HR WIDTH="60%">

@@ -21,7 +21,7 @@ Générateur/itérateur
  
 ```
 
-Traitement (ne marche pas avec Pyshp):
+Traitement avec triangles (3DFACE) (ne marche pas avec Pyshp):
 
 ```python
 
@@ -38,7 +38,7 @@ Traitement (ne marche pas avec Pyshp):
 
 <img src="http://i.imgur.com/8DN7hlV.jpg" HR WIDTH="60%">
 
-Comme il y a des lignes dans le fichier dxf (LINES)
+Comme il y a des lignes dans le fichier dxf (LINE)
 
 ```python
       schema = {'geometry': '3D LineString','properties': {'name': 'str'}}

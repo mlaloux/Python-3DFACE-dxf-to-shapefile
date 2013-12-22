@@ -3,7 +3,6 @@ Pour éviter de devoir charger la couche en mémoire avec la première solution:
 
 Générateur/itérateur
 
-`
 ```python
 
        def readfile(filepath, delim1, delim2): 
@@ -44,7 +43,7 @@ Comme il y a des lignes dans le fichier dxf (LINES)
 ```python
       schema = {'geometry': '3D LineString','properties': {'name': 'str'}}
        with fiona.open('tokajline.shp','w','ESRI Shapefile', schema) as e:  
-           for line in rea``pythondfile("tokaj.dxf","3DFACE","  0"):
+           for line in rea``pythondfile("tokaj.dxf","LINE","  0"):
                 name,x1,y1,z1,x2,y2,z2 = line[1::2]
                 geom = LineString([(float(x1),float(y1),float(z1)), (float(x2),float(y2),float(z2))])  
                 e.write({'geometry':mapping(geom), 'properties':{'name':name}})

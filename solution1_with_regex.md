@@ -1,3 +1,9 @@
+From [3D dxf files](http://osgeo-org.1560.x6.nabble.com/3D-dxf-files-td5093449.html#a5095133) 
+
+Looking at the awk script of Siki Zoltan,  I made Python scripts using regular expressions that works :
+
+
+
 
 In the dxf file, A 3D face polygon is located between the two delimiters:
 
@@ -32,12 +38,12 @@ With pyshp:
        import re
        w = shapefile.Writer(shapeType=shapefile.POLYGONZ)
        with open("tokaj.dxf") as fp:
-       w.field("NAME")
-       for result in re.findall('3DFACE(.*?)\s{3}0', fp.read(), re.S):
-              a = result.split()
-              name,x1,y1,z1,x2,y2,z2,x3,y3,z3,x4,y4,z4 = a[1::2]
-              w.poly([[[float(x1),float(y1),float(z1)], [float(x2),float(y2),float(z2)], [float(x3),float(y3),float(z3)]]])
-              w.record(name)
+           w.field("NAME")
+           for result in re.findall('3DFACE(.*?)\s{3}0', fp.read(), re.S):
+               a = result.split()
+               name,x1,y1,z1,x2,y2,z2,x3,y3,z3,x4,y4,z4 = a[1::2]
+               w.poly([[[float(x1),float(y1),float(z1)], [float(x2),float(y2),float(z2)], [float(x3),float(y3),float(z3)]]])
+               w.record(name)
 
        w.save("tokaj.shp")
 ```

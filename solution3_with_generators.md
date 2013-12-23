@@ -20,11 +20,27 @@ def readface(filepath, delim):
 
 Traitement
 
+ - Avec Pyshp  
+ 
+```python
+import shapefile
+w = shapefile.Writer(shapeType=shapefile.POLYGONZ)
+w.field("NAME")
+for line in readface("tokaj.dxf","3DFACE"):
+      w.poly([[[float(line['10']),float(line['20']),float(line['30'])], [float(line['11']),float(line['21']),float(line['31'])], [float(line['13']),float(line['23']),float(line['33'])]]])
+      w.record(line['8'])
+
+w.save("tokaj4.shp")
+```
+ 
+ - Avec Fiona et shapely  
 
 ```python
+import fiona
+from shapely.geometry import Polygon, mapping
 schema = {'geometry': '3D Polygon','properties': {'name': 'str'}}
 with fiona.open('tokaj6.shp','w','ESRI Shapefile', schema) as e:  
-    for line in readfile("tokaj.dxf","3DFACE","  0"):
+    for line in readfile("tokaj.dxf","3DFACE"):
         geom = Polygon([(float(line['10']),float(line['20']),float(line['30'])), (float(line['11']),float(line['21']),float(line['31'])), (float(line['12']),float(line['22']),float(line['32'])),(float(line['13']),float(line['23']),float(line['33']))])    
         attr = line['8']
         e.write({'geometry':mapping(geom), 'properties':{'name':attr}})

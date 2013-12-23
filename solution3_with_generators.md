@@ -14,8 +14,7 @@ def readface(filepath, delim):
                   if face:yield dict(zip(face[0::2], face[1::2]))
                   face = []
              elif go:
-                   if len(face) < 27:
-                        face.append(line.strip())
+                   if len(face) < 27:face.append(line.strip())
          yield dict(zip(face[0::2], face[1::2]))
 ```
 

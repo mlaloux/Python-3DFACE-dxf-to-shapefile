@@ -10,6 +10,8 @@ In the dxf file, A 3D face polygon is located between the two delimiters:
 3DFace  
 .....  
   0  
+  
+
 (the spaces before the 0 are important here, because there are also coordinates equal to 0, without spaces)
 
 I  use the solution of Brent Newey in [Repeatedly extract a line between two delimiters in a text file, Python](http://stackoverflow.com/questions/7098530/repeatedly-extract-a-line-between-two-delimiters-in-a-text-file-python)
